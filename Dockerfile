@@ -7,6 +7,8 @@ RUN apt-get update \
     xz-utils \
     && rm -rf /var/lib/apt/lists/*
 
+COPY --from=docker:dind /usr/local/bin/docker /usr/local/bin/
+
 RUN mkdir /opt/gradle \
     && cd /opt/gradle \
     && curl -sSL "https://services.gradle.org/distributions/gradle-8.3-bin.zip" -o gradle.zip \
