@@ -1,9 +1,8 @@
-FROM codercom/code-server:4.16.1-bullseye
+FROM codercom/code-server:4.19.0-bullseye
 USER root
 RUN apt-get update \
     && apt-get install --yes \
     default-jdk \
-    nodejs \
     xz-utils \
     && rm -rf /var/lib/apt/lists/*
 
