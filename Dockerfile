@@ -1,4 +1,4 @@
-FROM codercom/code-server:4.19.0-bullseye
+FROM codercom/code-server:4.19.1-bullseye
 USER root
 RUN apt-get update \
     && apt-get install --yes \
@@ -8,20 +8,28 @@ RUN apt-get update \
 
 COPY --from=docker:dind /usr/local/bin/docker /usr/local/bin/
 
+ENV GRADLE_VERSION=8.5
+
 RUN mkdir /opt/gradle \
     && cd /opt/gradle \
-    && curl -sSL "https://services.gradle.org/distributions/gradle-8.3-bin.zip" -o gradle.zip \
+    && curl -sSL "https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip" -o gradle.zip \
     && jar xf gradle.zip \
-    && chmod +x /opt/gradle/gradle-8.3/bin/gradle \
-    && rm gradle.zip
+    && chmod +x /opt/gradle/gradle-${GRADLE_VERSION}/bin/gradle \
+    && rm gradle.zip \
+    && ln -s /opt/gradle/gradle-${GRADLE_VERSION}/bin/gradle /usr/local/bin/
 
-RUN curl -sSL "https://go.dev/dl/go1.21.1.linux-amd64.tar.gz" -o go.tar.gz \
+ENV GO_VERSION=1.21.5
+
+RUN curl -sSL "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz" -o go.tar.gz \
     && tar -C /usr/local -xzf go.tar.gz \
-    && rm go.tar.gz
+    && rm go.tar.gz \
+    && ln -s /usr/local/go/bin/* /usr/local/bin/
 
-RUN curl -sSL "https://nodejs.org/dist/v18.17.1/node-v18.17.1-linux-x64.tar.xz" -o node.tar.xz \
+ENV NODE_VERSION=v20.10.0
+
+RUN curl -sSL "https://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}-linux-x64.tar.xz" -o node.tar.xz \
     && tar -C /usr/local -xf node.tar.xz \
-    && rm node.tar.xz
+    && rm node.tar.xz \
+    && ln -s /usr/local/node-${NODE_VERSION}-linux-x64/bin/* /usr/local/bin/
 
-ENV PATH=/opt/gradle/gradle-8.3/bin:/usr/local/go/bin:/usr/local/node-v18.17.1-linux-x64/bin:$PATH
 USER 1000
