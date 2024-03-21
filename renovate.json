@@ -2,5 +2,23 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
-  ]
+  ],
+  "customManagers": [{
+    "customType": "regex"
+    "fileMatch": "^Dockerfile$",
+    "matchStrings": ["ENV GRADLE_VERSION=(?<currentValue>.*?)\\n"],
+    "datasourceTemplate": "gradle-version"
+  },
+  {
+    "customType": "regex"
+    "fileMatch": "^Dockerfile$",
+    "matchStrings": ["ENV GO_VERSION=(?<currentValue>.*?)\\n"],
+    "datasourceTemplate": "go-version"
+  },
+  {
+    "customType": "regex"
+    "fileMatch": "^Dockerfile$",
+    "matchStrings": ["ENV NODE_VERSION=(?<currentValue>.*?)\\n"],
+    "datasourceTemplate": "node-version"
+  }]
 }
