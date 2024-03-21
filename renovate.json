@@ -4,19 +4,19 @@
     "config:recommended"
   ],
   "customManagers": [{
-    "customType": "regex"
+    "customType": "regex",
     "fileMatch": "^Dockerfile$",
     "matchStrings": ["ENV GRADLE_VERSION=(?<currentValue>.*?)\\n"],
     "datasourceTemplate": "gradle-version"
   },
   {
-    "customType": "regex"
+    "customType": "regex",
     "fileMatch": "^Dockerfile$",
     "matchStrings": ["ENV GO_VERSION=(?<currentValue>.*?)\\n"],
     "datasourceTemplate": "go-version"
   },
   {
-    "customType": "regex"
+    "customType": "regex",
     "fileMatch": "^Dockerfile$",
     "matchStrings": ["ENV NODE_VERSION=(?<currentValue>.*?)\\n"],
     "datasourceTemplate": "node-version"
