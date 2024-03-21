@@ -27,9 +27,9 @@ RUN curl -sSL "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz" -o go.tar.g
 
 ENV NODE_VERSION=20.11.1
 
-RUN curl -sSL "https://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}-linux-x64.tar.xz" -o node.tar.xz \
+RUN curl -sSL "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz" -o node.tar.xz \
     && tar -C /usr/local -xf node.tar.xz \
     && rm node.tar.xz \
-    && ln -s /usr/local/node-${NODE_VERSION}-linux-x64/bin/* /usr/local/bin/
+    && ln -s /usr/local/node-v${NODE_VERSION}-linux-x64/bin/* /usr/local/bin/
 
 USER 1000
