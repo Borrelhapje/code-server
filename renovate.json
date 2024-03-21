@@ -8,20 +8,20 @@
     "fileMatch": "^Dockerfile$",
     "matchStrings": ["ENV GRADLE_VERSION=(?<currentValue>.*?)\\n"],
     "datasourceTemplate": "gradle-version",
-    "depName": "gradle"
+    "depNameTemplate": "gradle"
   },
   {
     "customType": "regex",
     "fileMatch": "^Dockerfile$",
     "matchStrings": ["ENV GO_VERSION=(?<currentValue>.*?)\\n"],
     "datasourceTemplate": "go-version",
-    "depName": "go"
+    "depNameTemplate": "go"
   },
   {
     "customType": "regex",
     "fileMatch": "^Dockerfile$",
     "matchStrings": ["ENV NODE_VERSION=(?<currentValue>.*?)\\n"],
     "datasourceTemplate": "node-version",
-    "depName": "node"
+    "depNameTemplate": "node"
   }]
 }
