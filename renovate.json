@@ -3,6 +3,11 @@
   "extends": [
     "config:recommended"
   ],
+    "packageRules": [{
+        "matchManagers": ["github-actions"],
+    "automerge": true,
+    "matchUpdateTypes": ["minor", "patch"]
+  }],
   "customManagers": [{
     "customType": "regex",
     "fileMatch": "^Dockerfile$",
