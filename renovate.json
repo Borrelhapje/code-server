@@ -4,7 +4,7 @@
     "config:recommended"
   ],
     "packageRules": [{
-        "matchManagers": ["github-actions"],
+        "matchManagers": ["github-actions", "docker"],
     "automerge": true,
     "matchUpdateTypes": ["minor", "patch"]
   }],
