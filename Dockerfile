@@ -1,4 +1,4 @@
-FROM codercom/code-server:4.105.1-debian
+FROM codercom/code-server:4.106.2-debian
 USER root
 RUN apt-get update \
     && apt-get install --yes \
