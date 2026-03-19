@@ -8,7 +8,7 @@ RUN apt-get update \
 
 COPY --from=docker:dind /usr/local/bin/docker /usr/local/bin/
 
-ENV GRADLE_VERSION=9.4.0
+ENV GRADLE_VERSION=9.4.1
 
 RUN mkdir /opt/gradle \
     && cd /opt/gradle \
