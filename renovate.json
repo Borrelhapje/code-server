@@ -10,21 +10,27 @@
   }],
   "customManagers": [{
     "customType": "regex",
-    "fileMatch": "^Dockerfile$",
+      "managerFilePatterns": [
+        "/^Dockerfile$/"
+      ],
     "matchStrings": ["ENV GRADLE_VERSION=(?<currentValue>.*?)\\n"],
     "datasourceTemplate": "gradle-version",
     "depNameTemplate": "gradle"
   },
   {
     "customType": "regex",
-    "fileMatch": "^Dockerfile$",
+    "managerFilePatterns": [
+  "/^Dockerfile$/"
+  ],
     "matchStrings": ["ENV GO_VERSION=(?<currentValue>.*?)\\n"],
     "datasourceTemplate": "go-version",
     "depNameTemplate": "go"
   },
   {
     "customType": "regex",
-    "fileMatch": "^Dockerfile$",
+    "managerFilePatterns": [
+  "/^Dockerfile$/"
+  ],
     "matchStrings": ["ENV NODE_VERSION=(?<currentValue>.*?)\\n"],
     "datasourceTemplate": "node-version",
     "depNameTemplate": "node"
